@@ -40,18 +40,32 @@ fun PostCard(
     postImage: Painter,
     publicTitle: String,
     timePost: String,
+    description: String,
     socialCounters: SocialCounters,
     onClickOptions: () -> Unit
 ) {
-    Card (modifier = Modifier.padding(8.dp)) {
+    Card(modifier = Modifier.padding(8.dp)) {
         Column {
             PostCardHeader(
                 image = publicImage,
                 publicTitle = publicTitle,
                 time = timePost,
                 onClickOptions = onClickOptions,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(
+                    start = 16.dp,
+                    top = 12.dp,
+                    bottom = 16.dp,
+                    end = 4.dp
+                )
             )
+
+            Text(
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
+                text = description,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+
             Image(
                 modifier = Modifier.fillMaxWidth(),
                 painter = postImage,
@@ -74,7 +88,7 @@ private fun PostCardHeader(
     onClickOptions: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row (
+    Row(
         modifier = modifier,
     ) {
         Image(
@@ -84,7 +98,7 @@ private fun PostCardHeader(
                 .size(48.dp)
                 .clip(CircleShape)
         )
-        Column (modifier = Modifier.padding(start = 16.dp)) {
+        Column(modifier = Modifier.padding(start = 16.dp)) {
             Text(
                 text = publicTitle,
                 style = MaterialTheme.typography.titleMedium,
@@ -178,6 +192,8 @@ private fun PreviewPostCard() {
             socialCounters = SocialCounters(views = 10000),
             publicTitle = "уволено",
             timePost = "14:00",
+            description = "кабаныч, когда узнал, что " +
+                    "если сотрудникам не платить, то они начинают умирать от голода",
             onClickOptions = {}
         )
     }
