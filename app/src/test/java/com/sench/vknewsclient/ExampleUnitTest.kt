@@ -1,4 +1,4 @@
-package com.sumin.vknewsclient
+package com.sench.vknewsclient
 
 import org.junit.Test
 

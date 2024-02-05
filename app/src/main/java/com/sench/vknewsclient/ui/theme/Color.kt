@@ -1,4 +1,4 @@
-package com.sumin.vknewsclient.ui.theme
+package com.sench.vknewsclient.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
